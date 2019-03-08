@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+mkdir -p Afbeeldingen
+for file in `find $1 -name "*.png"`
+do
+        mv $file /home/hu/Documents/eos2/Afbeeldingen
+done
+
+find $1 -name '*.jpeg' -exec mv {}  /home/hu/Documents/eos2/Afbeeldingen \;
