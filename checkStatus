@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+sudo rm logbestand
+sudo touch logbestand
+
+cd $1
+files=$(find . )
+
+for file in $files
+do
+        command=$( sudo $2 $file )
+        if [ $? == 0]
+        then
+                echo $file "geslaagd" | sudo tee -a /home/hu/Documents/eos2/logbestand
+
+        else
+                echo $file "niet geslaagd" | sudo tee -a /home/hu/Documents/eos2/logbestand
+
+        fi
+done
