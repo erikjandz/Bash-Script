@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+sudo rm wwbestand
+sudo touch logbestand
+echo Voer je naam in
+read naam
+while [ 0 ]
+do
+        read -sp 'Voer je wachtwoord in: ' ww
+        if [[ $ww =~ [A-Z] ]] && [[ $ww =~ [a-z] ]] && [[ $ww =~ [0-9] ]] && [ ${#ww} -gt 7 ]
+        then
+                read -sp 'Voer je wachtwoord nogmaals in: ' ww2
+                if [ $ww2 == $ww ]
+                then
+                        echo Dit wachtwoord is goed
+                        break
+                fi
+        fi
+        echo Fout wachtwoord
+done
+
+echo $ww | sudo tee -a  /home/hu/Documents/eos2/wwbestand
+
+hash=$( md5sum wwbestand )
+
+echo $naam | sudo tee  /home/hu/Documents/eos2/wwbestand
+
+
+echo $hash | sudo tee -a  /home/hu/Documents/eos2/wwbestand
