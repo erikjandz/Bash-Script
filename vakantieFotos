@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd /home/hu/Documents/eos2/Afbeeldingen
+mkdir -p Vakantie
+find $1 -name "*vakantie*" -print0 | xargs -0 -I {} mv {} /home/hu/Documents/eos2/Afbeeldingen/Vakantie
