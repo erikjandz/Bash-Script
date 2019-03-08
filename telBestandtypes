@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+cd $1
+for i
+do
+        if [[ $i == "/"* ]]
+        then
+                continue
+        fi
+        ls -dg *$i | wc -l | xargs echo
+done
