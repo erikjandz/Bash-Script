@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#dit script selecteert een random file/directory uit een map.
+y=$( find . )
+count2=$(( 0 ))
+for j in $y
+do
+        $(( count2++ )) 2> /dev/null
+done
+x=$(( ( RANDOM % $count2 ) ))
+count=$(( 0 ))
+for i in $y
+do
+        if [ $x -eq $count ]
+        then
+                echo $i
+                break
+        fi
+        $(( count++ )) 2> /dev/null
+done
